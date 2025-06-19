@@ -22,7 +22,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
   }
 
   void _submitForm() {
-    // TODO: Implement form submission
+    if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Successful...'),
+          backgroundColor: Colors.yellow,
+        ),
+      );
+      _formKey.currentState!.reset();
+    }
   }
 
   @override
